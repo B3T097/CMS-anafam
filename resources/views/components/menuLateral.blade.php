@@ -51,7 +51,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="dropdown-item" href="{{ route('newNota') }}">
+                            <a class="dropdown-item" href="{{ route('notas.new') }}">
                                 <i class="mdi mdi-book-plus"></i>
                                 Agregar Nota
                             </a>

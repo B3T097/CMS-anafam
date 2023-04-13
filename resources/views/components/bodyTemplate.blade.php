@@ -16,7 +16,9 @@
     <link href="{{ asset('css/icons.min.css') }}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
     <link href="{{ asset('css/app.min.css') }}" rel="stylesheet" type="text/css" />
-
+    
+    <script src="{{asset('libs/ckeditor/ckeditor5/ckeditor.js')}}"></script>
+    <script src="{{asset('libs/ckeditor/ckfinder/ckfinder.js')}}"></script>
 </head>
 
 <body data-sidebar="dark">
@@ -56,6 +58,7 @@
     <script src="{{ asset('libs/node-waves/waves.min.js') }}"></script>
 
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/general.js') }}"></script>
 </body>
 
 </html>

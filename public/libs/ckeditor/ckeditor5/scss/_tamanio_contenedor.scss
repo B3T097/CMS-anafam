@@ -1,0 +1,43 @@
+html {
+    background-color: #ededed;
+}
+
+body {
+    font-weight: 400;
+    font-size: 13.333px;
+    line-height: 1.428571429;
+    max-width: 760px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 15px 15px;
+    min-height: 90vh;
+}
+
+p,
+span {
+    font-family: Open Sans, sans-serif !important;
+}
+
+p {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+ol,
+ul {
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+    padding-left: 40px;
+    li {
+        margin-bottom: .6em;
+    }
+}
+
+img {
+    height: auto !important;
+    max-width: 100%!important;
+}
+.separacion-img{
+    margin-bottom: 30px!important;
+}

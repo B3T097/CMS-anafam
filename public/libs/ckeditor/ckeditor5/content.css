@@ -1,0 +1,413 @@
+/*
+Copyright (c) 2003-2021, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
+*/
+
+body {
+	/* Font */
+	/* Emoji fonts are added to visualise them nicely in Internet Explorer. */
+	font-family: sans-serif, Arial, Verdana, "Trebuchet MS", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+	font-size: 10pt;
+
+	/* Text color */
+	color: #333;
+
+	/* Remove the background color to make it transparent. */
+	background-color: #fff;
+
+	margin: 20px;
+}
+
+.cke_editable {
+	font-size: 10pt;
+	line-height: 1.6;
+
+	/* Fix for missing scrollbars with RTL texts. (#10488) */
+	word-wrap: break-word;
+}
+
+blockquote {
+	font-style: italic;
+	font-family: Georgia, Times, "Times New Roman", serif;
+	padding: 2px 0;
+	border-style: solid;
+	border-color: #ccc;
+	border-width: 0;
+}
+
+.cke_contents_ltr blockquote {
+	padding-left: 20px;
+	padding-right: 8px;
+	border-left-width: 5px;
+}
+
+.cke_contents_rtl blockquote {
+	padding-left: 8px;
+	padding-right: 20px;
+	border-right-width: 5px;
+}
+
+a {
+	color: #0782c1;
+}
+
+ol,
+ul,
+dl {
+	/* IE7: reset rtl list margin. (#7334) */
+	*margin-right: 0px;
+	/* Preserved spaces for list items with text direction different than the list. (#6249,#8049)*/
+	padding: 0 40px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: normal;
+	line-height: 1.2;
+}
+
+hr {
+	border: 0px;
+	border-top: 1px solid #ccc;
+}
+
+img.right {
+	border: 1px solid #ccc;
+	float: right;
+	margin-left: 15px;
+	padding: 5px;
+}
+
+img.left {
+	border: 1px solid #ccc;
+	float: left;
+	margin-right: 15px;
+	padding: 5px;
+}
+
+pre {
+	white-space: pre-wrap; /* CSS 2.1 */
+	word-wrap: break-word; /* IE7 */
+	-moz-tab-size: 4;
+	tab-size: 4;
+}
+
+.marker {
+	background-color: Yellow;
+}
+
+span[lang] {
+	font-style: italic;
+}
+
+figure {
+	text-align: center;
+	outline: solid 1px #ccc;
+	background: rgba(0, 0, 0, 0.05);
+	padding: 10px;
+	margin: 10px 20px;
+	display: inline-block;
+}
+
+figure > figcaption {
+	text-align: center;
+	display: block; /* For IE8 */
+}
+
+a > img {
+	padding: 1px;
+	margin: 1px;
+	border: none;
+	outline: 1px solid #0782c1;
+}
+
+/* Widget Styles */
+.code-featured {
+	border: 5px solid red;
+}
+
+.math-featured {
+	padding: 20px;
+	box-shadow: 0 0 2px rgba(200, 0, 0, 1);
+	background-color: rgba(255, 0, 0, 0.05);
+	margin: 10px;
+}
+
+.image-clean {
+	border: 0;
+	background: none;
+	padding: 0;
+}
+
+.image-clean > figcaption {
+	font-size: 0.9em;
+	text-align: right;
+}
+
+.image-grayscale {
+	background-color: white;
+	color: #666;
+}
+
+.image-grayscale img,
+img.image-grayscale {
+	filter: grayscale(100%);
+}
+
+.embed-240p {
+	max-width: 426px;
+	max-height: 240px;
+	margin: 0 auto;
+}
+
+.embed-360p {
+	max-width: 640px;
+	max-height: 360px;
+	margin: 0 auto;
+}
+
+.embed-480p {
+	max-width: 854px;
+	max-height: 480px;
+	margin: 0 auto;
+}
+
+.embed-720p {
+	max-width: 1280px;
+	max-height: 720px;
+	margin: 0 auto;
+}
+
+.embed-1080p {
+	max-width: 1920px;
+	max-height: 1080px;
+	margin: 0 auto;
+}
+
+/**/
+
+.notas-nuevas {
+	font-size: 10pt;
+}
+
+.notas-nuevas p {
+	font-size: 10pt;
+	text-align: justify;
+}
+
+.notas-nuevas .nota-titulo.color-texto {
+	color: #852016;
+	text-transform: uppercase;
+	font-size: 12pt;
+	letter-spacing: 3px;
+	font-weight: bold;
+}
+
+.notas-nuevas .nota-titulo.color-texto::before {
+	content: "/////////////";
+	margin-right: 0.8rem;
+	letter-spacing: normal;
+	font-weight: normal;
+}
+
+.notas-nuevas .primera-letra::first-letter {
+	font-size: 50pt;
+	line-height: 1;
+}
+
+.notas-nuevas blockquote {
+	border-left: 7px solid #e7e7e7;
+	color: #e7e7e7;
+	position: relative;
+	padding-left: 2.5rem;
+	padding-top: 2rem;
+	padding-bottom: 5px;
+	margin: 3rem 0;
+	margin-left: 10rem;
+}
+
+.notas-nuevas blockquote p {
+	font-size: 14pt;
+	font-weight: bold;
+	text-align: justify;
+	color: #a3a3a4;
+}
+
+.notas-nuevas blockquote .frase-destacada-comilla {
+	position: absolute;
+	top: -3.25rem;
+	font-size: 7rem;
+	color: #a3a3a4;
+	font-family: initial !important;
+	font-weight: bold;
+}
+
+.notas-nuevas .cont-cuadro-frase {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-box-align: stretch;
+	-ms-flex-align: stretch;
+	align-items: stretch;
+	gap: 2%;
+	margin-bottom: 2rem;
+}
+
+.notas-nuevas .cont-cuadro-frase > div {
+	width: 100%;
+	min-height: 10rem;
+}
+
+@media (min-width: 768px) {
+	.notas-nuevas .cont-cuadro-frase > div {
+		width: 49%;
+	}
+}
+
+.notas-nuevas .cont-cuadro-frase .cuadro-frase {
+	padding: 3% 6%;
+	text-align: center;
+	background-color: #e7e7e7;
+}
+
+.notas-nuevas .cont-cuadro-frase .cuadro-frase .cuadro-frase--texto {
+	font-size: 15pt;
+	color: #000;
+	line-height: 1.2;
+	margin: 2rem 0;
+	font-family: "adelle-reg" !important;
+}
+
+.notas-nuevas .cont-cuadro-frase .cuadro-frase .cuadro-frase--texto span {
+	font-family: "adelle-reg" !important;
+}
+
+.notas-nuevas .cont-cuadro-frase .cuadro-frase hr,
+.notas-nuevas .cont-cuadro-frase .cuadro-frase .cuadro-frase--decorador {
+	max-width: 50%;
+	margin: 5px auto;
+	background-color: #fff;
+	border: 1px solid #fff;
+}
+
+.notas-nuevas .cont-cuadro-frase .cuadro-frase .cuadro-frase--decorador {
+	background-color: #fff;
+	height: 1rem;
+	width: 100%;
+	display: block;
+	margin: 0 auto;
+}
+
+.notas-nuevas .texto-dos-columnas {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	gap: 2%;
+}
+
+.notas-nuevas .texto-dos-columnas > div {
+	width: 100%;
+}
+
+@media (min-width: 768px) {
+	.notas-nuevas .texto-dos-columnas > div {
+		width: 50%;
+	}
+}
+
+.notas-nuevas .texto-dos-columnas .ul-paloma {
+	padding: 0;
+	list-style-type: none;
+}
+
+.notas-nuevas .texto-dos-columnas .ul-paloma li {
+	display: table;
+}
+
+.notas-nuevas .texto-dos-columnas .ul-paloma li::before {
+	content: "✔";
+	display: table-cell;
+	padding-right: 5px;
+}
+
+.notas-nuevas .recuadro-fondo-1 {
+	background-color: #852016;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	padding: 0 3.5rem 3.5rem 3.5rem;
+	margin: 2rem 0;
+	position: relative;
+}
+
+.notas-nuevas .recuadro-fondo-1 .recuadro-fondo-1--img,
+.notas-nuevas .recuadro-fondo-1 .recuadro-fondo-1--texto {
+	position: relative;
+	z-index: 2;
+	width: 100%;
+}
+
+@media (min-width: 768px) {
+	.notas-nuevas .recuadro-fondo-1 .recuadro-fondo-1--img,
+	.notas-nuevas .recuadro-fondo-1 .recuadro-fondo-1--texto {
+		width: 50%;
+	}
+}
+
+.notas-nuevas .recuadro-fondo-1 .recuadro-fondo-1--img img {
+	margin-top: 3.5rem !important;
+	width: 90%;
+	margin: auto;
+}
+
+.notas-nuevas .recuadro-fondo-1 .recuadro-fondo-1--texto {
+	padding: 0 1rem 1rem 1rem;
+}
+
+.notas-nuevas .recuadro-fondo-1::after,
+.notas-nuevas .recuadro-fondo-1::before {
+	content: "";
+	position: absolute;
+	right: 0;
+	background-color: #fff;
+	top: 0;
+}
+
+.notas-nuevas .recuadro-fondo-1::after {
+	background-color: #fff;
+	width: 50%;
+	height: 40%;
+	z-index: 1;
+}
+
+@media (min-width: 768px) {
+	.notas-nuevas .recuadro-fondo-1::after {
+		width: 10%;
+		height: 40%;
+	}
+}
+
+.notas-nuevas .recuadro-fondo-1::before {
+	right: 1.5rem;
+	background-color: #fff;
+	width: 93%;
+	height: 55%;
+	z-index: 1;
+	top: 40%;
+}
+
+@media (min-width: 768px) {
+	.notas-nuevas .recuadro-fondo-1::before {
+		width: 60%;
+		height: 95%;
+		top: 0;
+	}
+}

@@ -1,0 +1,493 @@
+ol li {
+    margin-bottom: 0 !important;
+}
+
+.nota_id ol.lista-correccion-num {
+    list-style: none;
+    counter-set: item;
+}
+
+.nota_id ol.lista-correccion-num>li:nth-child(1)::marker {
+    content: "1.";
+    font-weight: bold;
+}
+
+.nota_id ol.lista-correccion-num>li:nth-child(2)::marker {
+    content: "2.";
+    font-weight: bold;
+}
+
+
+ol {
+    counter-reset: item;
+
+    //aplica solo para los primeros hijos
+    >li {
+        counter-increment: item;
+
+        &::marker {
+            content: counters(item, ".") ".";
+        }
+    }
+
+    //aplica para todos los hijos, nietos, etc.
+    li {
+        padding: 0;
+        padding-left: 0.8rem;
+    }
+
+    &.marker-negrita {
+        >li {
+            &::marker {
+                font-weight: bold;
+            }
+        }
+    }
+
+    &.parentesis {
+        list-style: none;
+        counter-set: item;
+        li {
+            &::marker {
+                content: counters(item, ")") ")";
+            }
+        }
+    }
+
+    &.parentesis-letras,
+    &.ol-letras {
+        list-style: none;
+        counter-set: item;
+
+        li {
+            &:nth-child(1) {
+                &::marker {
+                    content: "a)";
+                }
+            }
+
+            &:nth-child(2) {
+                &::marker {
+                    content: "b)";
+                }
+            }
+
+            &:nth-child(3) {
+                &::marker {
+                    content: "c)";
+                }
+            }
+
+            &:nth-child(4) {
+                &::marker {
+                    content: "d)";
+                }
+            }
+
+            &:nth-child(5) {
+                &::marker {
+                    content: "e)";
+                }
+            }
+        }
+    }
+
+    &.ol-alfa-punto {
+        list-style: none;
+        counter-set: item;
+
+        li {
+            &:nth-child(1) {
+                &::marker {
+                    content: "a.";
+                }
+            }
+
+            &:nth-child(2) {
+                &::marker {
+                    content: "b.";
+                }
+            }
+
+            &:nth-child(3) {
+                &::marker {
+                    content: "c.";
+                }
+            }
+
+            &:nth-child(4) {
+                &::marker {
+                    content: "d.";
+                }
+            }
+
+            &:nth-child(5) {
+                &::marker {
+                    content: "e.";
+                }
+            }
+
+            &:nth-child(6) {
+                &::marker {
+                    content: "f.";
+                }
+            }
+
+            &:nth-child(7) {
+                &::marker {
+                    content: "g.";
+                }
+            }
+
+            &:nth-child(8) {
+                &::marker {
+                    content: "h.";
+                }
+            }
+
+            &:nth-child(9) {
+                &::marker {
+                    content: "i.";
+                }
+            }
+
+            &:nth-child(10) {
+                &::marker {
+                    content: "j.";
+                }
+            }
+        }
+    }
+
+    &.ol-alfa-punto-mayus {
+        list-style: none;
+        counter-set: item;
+
+        li {
+            &:nth-child(1) {
+                &::marker {
+                    content: "A.";
+                }
+            }
+
+            &:nth-child(2) {
+                &::marker {
+                    content: "B.";
+                }
+            }
+
+            &:nth-child(3) {
+                &::marker {
+                    content: "C.";
+                }
+            }
+
+            &:nth-child(4) {
+                &::marker {
+                    content: "D.";
+                }
+            }
+
+            &:nth-child(5) {
+                &::marker {
+                    content: "E.";
+                }
+            }
+
+            &:nth-child(6) {
+                &::marker {
+                    content: "F.";
+                }
+            }
+
+            &:nth-child(7) {
+                &::marker {
+                    content: "G.";
+                }
+            }
+
+            &:nth-child(8) {
+                &::marker {
+                    content: "H.";
+                }
+            }
+
+            &:nth-child(9) {
+                &::marker {
+                    content: "I.";
+                }
+            }
+
+            &:nth-child(10) {
+                &::marker {
+                    content: "J.";
+                }
+            }
+        }
+    }
+
+    &.ol-alfa-mayus-parentesis {
+        list-style: none;
+        counter-set: item;
+
+        li {
+            &:nth-child(1) {
+                &::marker {
+                    content: "A)";
+                    font-weight: bold;
+                }
+            }
+
+            &:nth-child(2) {
+                &::marker {
+                    content: "B)";
+                    font-weight: bold;
+                }
+            }
+
+            &:nth-child(3) {
+                &::marker {
+                    content: "C)";
+                    font-weight: bold;
+                }
+            }
+
+            &:nth-child(4) {
+                &::marker {
+                    content: "D)";
+                    font-weight: bold;
+                }
+            }
+
+            &:nth-child(5) {
+                &::marker {
+                    content: "E)";
+                    font-weight: bold;
+                }
+            }
+
+            &:nth-child(6) {
+                &::marker {
+                    content: "F)";
+                    font-weight: bold;
+                }
+            }
+
+            &:nth-child(7) {
+                &::marker {
+                    content: "G)";
+                    font-weight: bold;
+                }
+            }
+
+            &:nth-child(8) {
+                &::marker {
+                    content: "H)";
+                    font-weight: bold;
+                }
+            }
+
+            &:nth-child(9) {
+                &::marker {
+                    content: "I)";
+                    font-weight: bold;
+                }
+            }
+
+            &:nth-child(10) {
+                &::marker {
+                    content: "J)";
+                    font-weight: bold;
+                }
+            }
+
+        }
+    }
+
+    &.ol-roman-parentesis {
+        list-style: none;
+        counter-set: item;
+        &.color-rojo {
+            li {
+                &::marker {
+                    color: red;
+                    font-size: initial;
+                }
+            }
+        }
+
+        li {
+            &:nth-child(1) {
+                &::marker {
+                    content: "I)";
+                    font-weight: bold;
+                }
+            }
+
+            &:nth-child(2) {
+                &::marker {
+                    content: "II)";
+                    font-weight: bold;
+                }
+            }
+
+            &:nth-child(3) {
+                &::marker {
+                    content: "II)";
+                    font-weight: bold;
+                }
+            }
+
+            &:nth-child(4) {
+                &::marker {
+                    content: "IV)";
+                    font-weight: bold;
+                }
+            }
+
+            &:nth-child(5) {
+                &::marker {
+                    content: "V)";
+                    font-weight: bold;
+                }
+            }
+
+            &:nth-child(6) {
+                &::marker {
+                    content: "VI)";
+                    font-weight: bold;
+                }
+            }
+
+            &:nth-child(7) {
+                &::marker {
+                    content: "VII)";
+                    font-weight: bold;
+                }
+            }
+
+            &:nth-child(8) {
+                &::marker {
+                    content: "VIII)";
+                    font-weight: bold;
+                }
+            }
+
+            &:nth-child(9) {
+                &::marker {
+                    content: "IX)";
+                    font-weight: bold;
+                }
+            }
+
+            &:nth-child(10) {
+                &::marker {
+                    content: "X)";
+                    font-weight: bold;
+                }
+            }
+
+        }
+    }
+
+    &.ol-roman-punto {
+        list-style: none;
+        counter-set: item;
+        &.color-rojo {
+            li {
+                &::marker {
+                    color: red;
+                    font-size: initial;
+                }
+            }
+        }
+
+        li {
+            &:nth-child(1) {
+                &::marker {
+                    content: "I.";
+                    font-weight: bold;
+                }
+            }
+
+            &:nth-child(2) {
+                &::marker {
+                    content: "II.";
+                    font-weight: bold;
+                }
+            }
+
+            &:nth-child(3) {
+                &::marker {
+                    content: "II.";
+                    font-weight: bold;
+                }
+            }
+
+            &:nth-child(4) {
+                &::marker {
+                    content: "IV.";
+                    font-weight: bold;
+                }
+            }
+
+            &:nth-child(5) {
+                &::marker {
+                    content: "V.";
+                    font-weight: bold;
+                }
+            }
+
+            &:nth-child(6) {
+                &::marker {
+                    content: "VI.";
+                    font-weight: bold;
+                }
+            }
+
+            &:nth-child(7) {
+                &::marker {
+                    content: "VII.";
+                    font-weight: bold;
+                }
+            }
+
+            &:nth-child(8) {
+                &::marker {
+                    content: "VIII.";
+                    font-weight: bold;
+                }
+            }
+
+            &:nth-child(9) {
+                &::marker {
+                    content: "IX.";
+                    font-weight: bold;
+                }
+            }
+
+            &:nth-child(10) {
+                &::marker {
+                    content: "X.";
+                    font-weight: bold;
+                }
+            }
+
+        }
+    }
+}
+
+
+.lista-palomitas {
+    list-style-type: none;
+
+    li {
+        display: table;
+
+        &::before {
+            content: "✔";
+            padding-right: 1rem;
+            display: table-cell;
+        }
+    }
+}

@@ -1,0 +1,466 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,300,800);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700);
+@font-face {
+    font-family: "adelle-reg";
+    src: url("../../fonts/adelle/adelle-reg.otf") format("opentype");
+    font-display: swap;
+}
+@font-face {
+    font-family: "adelle-light";
+    src: url("../../fonts/adelle/adelle-light.otf") format("opentype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "adelle-bold";
+    src: url("../../fonts/adelle/adelle-bold.otf") format("opentype");
+    font-display: swap;
+}
+$color-gris: #e7e7e7;
+$color-main: #a59c9b;
+body {
+    font-family: "Open Sans", sans-serif;
+}
+.notas-nuevas {
+    img {
+        width: 100%;
+    }
+    // tamaño de letra en las notas con cualquier id
+    font-size: 10pt;
+    text-align: justify;
+    font-family: "Open Sans", sans-serif;
+    p {
+        font-size: 10pt;
+        text-align: justify;
+        font-family: "Open Sans", sans-serif;
+    }
+    // titulo nota
+    .nota-titulo {
+        font-size: 12pt;
+        letter-spacing: 3px;
+
+        text-transform: uppercase;
+        &.color-texto {
+            color: $color-main;
+            font-weight: bold;
+            &::before {
+                content: "/////////////";
+                margin-right: 0.8rem;
+                letter-spacing: normal;
+                font-weight: normal;
+            }
+        }
+        &.sin-lineas {
+            &::before {
+                content: unset;
+            }
+        }
+        &.capitalizado {
+            text-transform: unset;
+        }
+        &.fondo-texto {
+            font-weight: normal;
+            background-color: $color-main;
+            color: #fff;
+            max-width: max-content;
+            padding: 5px 3rem;
+        }
+    }
+    // tamaño de la primera letra
+    .primera-letra {
+        &.cuadro-color {
+            background-color: #e7e7e7;
+            padding: 3rem;
+            padding-left: 7%;
+            font-size: 12pt;
+            font-family: "adelle-light" !important;
+            line-height: 1.6;
+            position: relative;
+            strong {
+                font-family: "adelle-reg" !important;
+            }
+            &.regular {
+                font-family: "adelle-reg" !important;
+                strong {
+                    font-family: "adelle-bold" !important;
+                }
+            }
+            &::before {
+                content: "";
+                position: absolute;
+            }
+            &::before {
+                width: 6px;
+                height: 75%;
+                left: 4%;
+                top: 50%;
+                -webkit-transform: translateY(-50%);
+                transform: translateY(-50%);
+                background-color: #fff;
+            }
+        }
+        &::first-letter {
+            font-size: 50pt;
+            line-height: 0.8;
+        }
+    }
+    // ->  [ cita en comilla ]
+    blockquote {
+        border-left: 7px solid $color-gris;
+        color: $color-gris;
+        position: relative;
+        padding-left: 2.5rem;
+        padding-top: 2rem;
+        padding-bottom: 5px;
+        margin: 3rem 0;
+        margin-left: 5rem;
+        @media (min-width: 768px) {
+            margin-left: 10rem;
+        }
+        p {
+            font-size: 14pt !important;
+            font-weight: bold;
+            text-align: justify;
+            color: #a3a3a4;
+        }
+        .frase-destacada-comilla {
+            position: absolute;
+            top: -3.25rem;
+            font-size: 7rem;
+            color: #a3a3a4;
+            font-family: initial !important;
+            font-weight: bold;
+        }
+    }
+    // cuadro gris
+    .cont-cuadro-frase {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        gap: 2%;
+        margin-bottom: 2rem;
+        & > div {
+            width: 100%;
+            min-height: 10rem;
+            @media (min-width: 768px) {
+                width: 49%;
+            }
+        }
+        .cuadro-frase {
+            padding: 3% 6%;
+            text-align: center;
+            background-color: $color-gris;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            img {
+                display: none;
+                @media (min-width: 768px) {
+                    display: block;
+                    position: relative;
+                    width: 25px;
+                    top: -1rem;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    opacity: 0.5;
+                }
+            }
+            .cuadro-frase--texto,
+            p,
+            span {
+                font-size: 14pt;
+                color: #000;
+                line-height: 1.2;
+                margin: 2rem 0;
+                font-family: "adelle-light" !important;
+
+                strong {
+                    font-family: "adelle-reg" !important;
+                }
+                //*Quitare las clases de letras distintas despues*/
+                &.regular {
+                    font-family: "adelle-reg" !important;
+                    strong {
+                        font-family: "adelle-bold" !important;
+                    }
+                }
+            }
+
+            hr,
+            .cuadro-frase--decorador {
+                max-width: 50%;
+                width: 50%;
+                margin: 5px auto;
+                background-color: #fff;
+                border: 1px solid #fff;
+            }
+            .cuadro-frase--decorador {
+                background-color: #fff;
+                height: 1rem;
+                width: 100%;
+                display: block;
+                margin: 0 auto;
+            }
+        }
+        @media (min-width: 768px) {
+            flex-wrap: nowrap;
+        }
+    }
+    // texto a dos columnas
+    .texto-dos-columnas {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5%;
+        > div {
+            width: 100%;
+            @media (min-width: 768px) {
+                width: 50%;
+            }
+        }
+
+        @media (min-width: 768px) {
+            flex-wrap: nowrap;
+        }
+    }
+    // cuadros con fondo de color del sitio
+
+    .recuadro-fondo-1 {
+        background-color: $color-main;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0 3.5rem 3.5rem 3.5rem;
+        margin: 2rem 0;
+        position: relative;
+        .recuadro-fondo-1--img,
+        .recuadro-fondo-1--texto {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            @media (min-width: 768px) {
+                width: 50%;
+            }
+        }
+        .recuadro-fondo-1--img {
+            img {
+                margin-top: 3.5rem !important;
+                width: 95%;
+                margin: auto;
+            }
+        }
+        .recuadro-fondo-1--texto {
+            padding: 0 1rem 1rem 1rem;
+        }
+        &::after,
+        &::before {
+            content: "";
+            position: absolute;
+            right: 0;
+            background-color: #fff;
+            top: 0;
+        }
+        &::after {
+            background-color: #fff;
+            width: 50%;
+            height: 40%;
+            z-index: 1;
+            @media (min-width: 768px) {
+                width: 10%;
+                height: 40%;
+            }
+        }
+        &::before {
+            right: 1.5rem;
+            background-color: #fff;
+            width: 93%;
+            height: 55%;
+            z-index: 1;
+            top: 40%;
+            @media (min-width: 768px) {
+                width: 60%;
+                height: 95%;
+                top: 0;
+            }
+        }
+        @media (min-width: 768px) {
+            flex-wrap: nowrap;
+        }
+    }
+    .recuadro-fondo-2 {
+        background-color: $color-main;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 3rem;
+        color: #fff;
+        margin: 2rem 0;
+        .recuadro-fondo-2--img,
+        .recuadro-fondo-2--texto {
+            width: 100%;
+        }
+        .recuadro-fondo-2--img {
+            @media (min-width: 768px) {
+                width: 40%;
+            }
+        }
+        .recuadro-fondo-2--texto {
+            @media (min-width: 768px) {
+                width: 60%;
+                padding-left: 2rem;
+            }
+        }
+        @media (min-width: 768px) {
+            flex-wrap: nowrap;
+        }
+    }
+    // listas
+    .ul-paloma {
+        padding: 0;
+        list-style-type: none;
+        padding-left: 2rem;
+        li {
+            margin-bottom: 10px;
+            display: table;
+            &::before {
+                content: "✔";
+                display: table-cell;
+                padding-right: 10px;
+            }
+        }
+    }
+    ol {
+        padding-left: 2rem;
+        li {
+            margin-bottom: 10px;
+        }
+    }
+    .ol-decorado {
+        padding: 0;
+        list-style-type: none;
+        padding-left: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        li {
+            display: table;
+            position: relative;
+            margin-bottom: 0;
+            padding-left: 3rem;
+            &::before {
+                position: absolute;
+                width: 3rem;
+                text-align: center;
+                display: table-cell;
+                padding-right: 10px;
+                color: #787878;
+                font-weight: bold;
+                z-index: 2;
+                left: 3px;
+                top: 4px;
+                font-size: 12px;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                width: 2.4rem;
+                height: 2.4rem;
+                background-color: #e7e7e7;
+                top: 0px;
+                left: 0px;
+                z-index: 1;
+            }
+        }
+        &.gris {
+            li {
+                &::before {
+                    color: #787878;
+                }
+                &::after {
+                    background-color: #e7e7e7;
+                }
+            }
+        }
+    }
+    .img-fila {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        img{
+            width: 230px;
+        }
+    }
+    .lista-imagenes {
+        display: flex;
+        flex-direction: column;
+        padding-left: 2rem;
+        .li-elemento {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            .li-imagen {
+                img {
+                    width: 50px !important;
+                }
+            }
+            .li-texto {
+                width: 100%;
+            }
+        }
+    }
+    .cont-texto-img {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        padding-bottom: 1rem;
+        position: relative;
+        z-index: 2;
+        @media (min-width: 768px) {
+            flex-direction: row;
+            padding-bottom: 100px;
+            margin-bottom: 3rem;
+        }
+        &::after {
+            @media (min-width: 768px) {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                width: 100%;
+                height: 139px;
+                background-color: $color-main;
+                z-index: 1;
+            }
+        }
+        .img {
+            width: auto;
+            position: relative;
+            z-index: 2;
+        }
+        .img-texto {
+            @media (min-width: 768px) {
+                max-width: 155px;
+                position: relative;
+                z-index: 2;
+            }
+            p {
+                @media (min-width: 768px) {
+                    text-align: right !important;
+                }
+            }
+            img {
+                @media (min-width: 768px) {
+                    position: absolute;
+                    bottom: -6rem;
+                    left: -1rem;
+                    max-width: none;
+                    height: auto !important;
+                    width: 22rem !important;
+                }
+                @media (min-width: 1024px) {
+                    bottom: -7.5rem;
+                    width: 25rem !important;
+                }
+            }
+        }
+    }
+}
