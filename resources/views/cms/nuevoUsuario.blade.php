@@ -3,7 +3,7 @@
     <div class="content">
         <div class="content-form">
             {{-- was-validated --}}
-            <form class="row g-3 needs-validation was-validated" novalidate="">
+            <form class="row g-3 needs-validation was-validated" novalidate="" action="{{ route('registro-usuario') }}" method="post">
                 @csrf
                 <div class="col-md-4">
                     <label class="form-label" for="txtNombre">Nombre</label>
@@ -17,15 +17,15 @@
                 </div>
                 <div class="col-md-4">
                     <label class="form-label" for="txtPWD">Contraseña</label>
-                    <input class="form-control" id="txtPWD" name="txtPWD" type="email" value="" required="">
+                    <input class="form-control" id="txtPWD" name="txtPWD" type="password" value="" required="">
                     <div class="invalid-feedback">Escriba su contraseña.</div>
                 </div>
                 <div class="col-12 ml-0 mt-3 d-flex flex-row-reverse">
                     <button class="btn btn-primary" type="submit">Guardar</button>
                 </div>
             </form>
-            
-            
+
+
         </div>
     </div>
 </div>

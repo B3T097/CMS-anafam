@@ -58,11 +58,16 @@ class LoginController extends Auth
         $user = new User();
         $user->nombre = $request->txtNombre;
         // $user->pass = Hash::make($request->txtPWD);
-        $user->pass = $request->txtPWD;
-        $user->correo = $request->txtEmail;
+        $user->password = $request->txtPWD;
+        $user->email = $request->txtEmail;
 
-        $user->save();
-        return redirect(route('newUser'));
+        
+        if($user->save()){
+            return redirect(route('newUser'));            
+        }else{
+            return redirect(route('newUser',['error' => 1]));
+        }
+
     }
 
     /**
