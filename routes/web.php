@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AutoresController;
 use App\Http\Controllers\cmsController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
@@ -27,9 +28,16 @@ Route::group(['prefix' => 'cms', 'middleware' => 'auth'], function () {
     Route::get('/users/new', [cmsController::class, 'nuevoUsuario'])->name('newUser');
     Route::get('/notas', [cmsController::class, 'nuevoUsuario'])->name('notas');
     Route::get('/nota/new', [cmsController::class, 'nuevaNota'])->name('newNota');
+
+    Route::get('/autores', [AutoresController::class, 'index'])->name('autores');
+    Route::get('/autor/new', [AutoresController::class, 'nuevo'])->name('autores.new');
+    Route::get('/autor/{id}', [AutoresController::class, 'editar'])->name('autores.edit');
 });
 
 
 Route::post('/validarLogin', [LoginController::class, 'login'])->name("validarLogin");
 Route::post('/cerrarSesion', [LoginController::class, 'logOut'])->name("salir");
 Route::post('/registro-usuario', [LoginController::class, 'create'])->name("registro-usuario");
+
+
+Route::post('/nuevo-autor', [AutoresController::class, 'create'])->name("newAutor");

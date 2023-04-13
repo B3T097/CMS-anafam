@@ -58,6 +58,27 @@
                         </li>
                     </ul>
                 </li>
+
+                <li class="nav-item dropdown" style="cursor: pointer">
+                    <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="mdi mdi-book-open-variant"></i>
+                        Autores
+                    </a>
+                    <ul class="dropdown-menu dark">
+                        <li>
+                            <a class="dropdown-item" href="{{ route('autores') }}">
+                                <i class="mdi mdi-book-open-page-variant"></i>
+                                Todos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{ route('autores.new') }}">
+                                <i class="mdi mdi-book-plus"></i>
+                                Nuevo Autor
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
 
         </div>
