@@ -21,12 +21,14 @@ Route::get('/', function () {
     return redirect('cms/login');
 });
 
-Route::get('/cms/login', [LoginController::class, 'index'])->name('login');
-Route::get('/users/new', [cmsController::class, 'nuevoUsuario'])->name('newUser');
+Route::get('/login', [LoginController::class, 'index'])->name('login');
 
-Route::group(['prefix' => 'cms', 'middleware' => 'auth'], function () {
+Route::group(['middleware' => 'auth'], function () {
     Route::get('/bienvenida', [cmsController::class, 'bienvenida'])->name('bienvenida');
+
     Route::get('/users', [cmsController::class, 'nuevoUsuario'])->name('users');
+    Route::get('/users/new', [cmsController::class, 'nuevoUsuario'])->name('newUser');
+
     Route::get('/notas', [cmsController::class, 'nuevoUsuario'])->name('notas');
     Route::get('/nota/new', [cmsController::class, 'nuevaNota'])->name('newNota');
 
