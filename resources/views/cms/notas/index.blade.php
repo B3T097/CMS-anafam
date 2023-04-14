@@ -20,6 +20,7 @@
             <tbody>
                 @foreach ($notas as $nota)
                 </td>
+                    <td class="align-middle">{{$nota->titulo}}</td>
                     <td class="align-middle">{{$nota->fecha_publicacion}}</td>
                     <td class="align-middle">{{$nota->visitas}}</td>
                     <td class="align-middle">{{$nota->status}}</td>
