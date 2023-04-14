@@ -57,8 +57,8 @@ class LoginController extends Auth
     {
         $user = new User();
         $user->nombre = $request->txtNombre;
-        // $user->pass = Hash::make($request->txtPWD);
-        $user->password = $request->txtPWD;
+        $user->pass = Hash::make($request->txtPWD);
+        // $user->password = $request->txtPWD;
         $user->email = $request->txtEmail;
 
         
