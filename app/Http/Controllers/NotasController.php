@@ -63,7 +63,6 @@ class NotasController extends Controller
             $nota->descripcion = $request->descripcion;
             $nota->fecha_nota = $request->fecha_nota;
             $nota->fecha_publicacion = $request->fecha_publicacion;
-            $nota->imagen = $imagen;
             $nota->status = $request->status;
             $nota->url = $request->url;
 

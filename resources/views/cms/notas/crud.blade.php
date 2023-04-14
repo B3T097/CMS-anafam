@@ -71,10 +71,10 @@
                     <div class="mb-3">
                         <div class="mb-3">
                             <label class="form-label" for="status">Estatus </label>
-                            <select class="form-control" name="status" id="status" @if(isset($nota)) value="{{$nota->status}}" @endif>
-                                <option value="0" selected>Borrador</option>
-                                <option value="1">Activo</option>
-                                <option value="2">Inactivo</option>
+                            <select class="form-control" name="status" id="status">
+                                <option value="0" @selected(isset($nota) && $nota->status == 0)>Borrador</option>
+                                <option value="1" @selected(isset($nota) && $nota->status == 1)>Activo</option>
+                                <option value="2" @selected(isset($nota) && $nota->status == 2)>Inactivo</option>
                             </select>
                         </div>
                     </div>
