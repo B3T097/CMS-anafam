@@ -13,7 +13,7 @@ CKEDITOR.editorConfig = function (config) {
 	config.templates_replaceContent = false;
 	// config.forcePasteAsPlainText = true;
 	// Define changes to default configuration here. For example:
-	config.language = 'es';
+	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
 };
 

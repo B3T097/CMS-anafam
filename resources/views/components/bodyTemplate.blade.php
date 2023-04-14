@@ -17,8 +17,8 @@
     <!-- App Css-->
     <link href="{{ asset('css/app.min.css') }}" rel="stylesheet" type="text/css" />
     
-    <script src="{{asset('libs/ckeditor/ckeditor5/ckeditor.js')}}"></script>
-    <script src="{{asset('libs/ckeditor/ckfinder/ckfinder.js')}}"></script>
+    <script src="{{asset('libs/ckeditor5/ckeditor.js')}}"></script>
+    <script src="{{asset('libs/ckfinder/ckfinder.js')}}"></script>
 </head>
 
 <body data-sidebar="dark">
