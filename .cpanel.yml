@@ -1,0 +1,6 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/nutric15/public_html/anafam/cms
+    - export LOCAL=/home/nutric15/repositories/CMS-anafam/*
+    - /bin/cp -R $LOCAL $DEPLOYPATH
