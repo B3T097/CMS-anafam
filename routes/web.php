@@ -29,9 +29,6 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/users', [cmsController::class, 'nuevoUsuario'])->name('users');
     Route::get('/users/new', [cmsController::class, 'nuevoUsuario'])->name('newUser');
 
-    Route::get('/notas', [cmsController::class, 'nuevoUsuario'])->name('notas');
-    Route::get('/nota/new', [cmsController::class, 'nuevaNota'])->name('newNota');
-
     Route::get('/autores', [AutoresController::class, 'index'])->name('autores');
     Route::get('/autor/new', [AutoresController::class, 'nuevo'])->name('autores.new');
     Route::get('/autor/{id}', [AutoresController::class, 'editar'])->name('autores.edit');

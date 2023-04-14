@@ -15,6 +15,7 @@
                     <th>fecha_publicacion</th>
                     <th>visitas</th>
                     <th>status</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <tbody>
@@ -24,6 +25,7 @@
                     <td class="align-middle">{{$nota->fecha_publicacion}}</td>
                     <td class="align-middle">{{$nota->visitas}}</td>
                     <td class="align-middle">{{$nota->status}}</td>
+                    <td class="align-middle"><a class="btn btn-primary" href="{{route('notas.edit', ['id' => $nota->id])}}"> <i class="mdi mdi-pencil"></i> Editar</a></td>
                 </tr>
                 @endforeach
             </tbody>

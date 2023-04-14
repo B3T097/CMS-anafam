@@ -9,20 +9,20 @@
                 <div class="col-md-12 col-sm-12">
                     <div class="mb-3">
                         <label class="form-label" for="titulo">Titulo </label>
-                        <input class="form-control" id="titulo" name="titulo" type="text" required>
+                        <input class="form-control" id="titulo" name="titulo" type="text" required @if(isset($nota)) value="{{$nota->titulo}}" @endif>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="mb-3">
                         <label class="form-label" for="url">Url </label>
-                        <input class="form-control" id="url" name="url" type="text" required>
+                        <input class="form-control" id="url" name="url" type="text" required @if(isset($nota)) value="{{$nota->url}}" @endif>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="mb-3">
                         <div class="mb-3">
                             <label class="form-label" for="id_autor">Autor </label>
-                            <select class="form-control" name="id_autor" id="id_autor">
+                            <select class="form-control" name="id_autor" id="id_autor" @if(isset($nota)) value="{{$nota->id_autor}}" @endif>
                                 @foreach ($autores as $autor)
                                     <option value="{{$autor->id}}">{{$autor->nombre}}</option>
                                 @endforeach
@@ -39,32 +39,36 @@
                 <div class="col-md-12 col-sm-12">
                     <div class="mb-3">
                         <label class="form-label" for="descripcion">Descripcion </label>
-                        <textarea class="form-control" name="descripcion" id="descripcion" cols="30" rows="5"></textarea>
+                        <textarea class="form-control" name="descripcion" id="descripcion" cols="30" rows="5">@if(isset($nota)) {{$nota->descripcion}} @endif</textarea>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="mb-3">
                         <label class="form-label" for="fecha_publicacion">Fecha de publicación </label>
-                        <input class="form-control" id="fecha_publicacion" name="fecha_publicacion" type="date" required value="{{ date('Y-m-d') }}">
+                        <input class="form-control" id="fecha_publicacion" name="fecha_publicacion" type="date" required value="{{ date('Y-m-d') }}" @if(isset($nota)) value="{{$nota->fecha_publicacion}}" @endif>
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="mb-3">
                         <label class="form-label" for="fecha_nota">Fecha de la nota </label>
-                        <input class="form-control" id="fecha_nota" name="fecha_nota" type="date" required value="{{date('Y-m-d')}}">
+                        <input class="form-control" id="fecha_nota" name="fecha_nota" type="date" required value="{{date('Y-m-d')}}" @if(isset($nota)) value="{{$nota->fecha_nota}}" @endif>
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <div class="mb-3">
                         <label class="form-label" for="imagen">Imagen Principal</label>
-                        <input class="form-control" id="imagen" name="imagen" type="file" accept=".jpg, .png, .jpeg" required>
+                        <input class="form-control" id="imagen" name="imagen" type="file" accept=".jpg, .png, .jpeg" >
+                        {{-- <input class="form-control" type="text" name="name_imagen" id="name_imagen" @if(isset($nota)) value="{{$nota->imagen}}" @endif readonly> --}}
+                        @if(isset($nota)) 
+                        <img src="{{Storage::url($nota->imagen)}}" alt="imagen" class="img-fluid img-thumbnail">
+                        @endif
                     </div>
                 </div>
                 <div class="col-md-6 col-sm-12">
                     <div class="mb-3">
                         <div class="mb-3">
                             <label class="form-label" for="status">Estatus </label>
-                            <select class="form-control" name="status" id="status">
+                            <select class="form-control" name="status" id="status" @if(isset($nota)) value="{{$nota->status}}" @endif>
                                 <option value="0" selected>Borrador</option>
                                 <option value="1">Activo</option>
                                 <option value="2">Inactivo</option>
@@ -91,5 +95,7 @@
             url.value = URLAmigable(contenido.value);
         });
     });
+
+    CKFinder.setupCKEditor();
     CKEDITOR.replace('contenido');
 </script>

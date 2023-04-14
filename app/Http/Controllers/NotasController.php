@@ -25,7 +25,10 @@ class NotasController extends Controller
         $id = (int)$request->id;
         if ($id !== 0) {
             $autores = DB::table('autores')->get();
-            return view('components.bodyTemplate', ['viewComponent' => 'cms.notas.crud', 'autores' => $autores])->with('id', $id);
+            $nota = [];
+            if ($id !== 0)
+                $nota = DB::table('notas')->get()->where('id', "=", $id)->first();
+            return view('components.bodyTemplate', ['viewComponent' => 'cms.notas.crud', 'autores' => $autores, 'nota' => $nota])->with('id', $id);
         } else {
             return $this->index();
         }
@@ -39,6 +42,7 @@ class NotasController extends Controller
         $imagen = $request->file('imagen')->store('public/imagenes');
         if ($imagen !== false) {
             $imagen = substr($imagen, 7, strlen($imagen) - 1);
+
             $nota = new notas();
             
             $nota->titulo = $request->titulo;
