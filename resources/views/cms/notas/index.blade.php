@@ -1,6 +1,7 @@
 <style>
     img{
         max-width: 100%;
+        border-radius: 15px;
     }
 </style>
 <div class="container">
