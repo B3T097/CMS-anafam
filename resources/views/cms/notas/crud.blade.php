@@ -5,6 +5,9 @@
     <div class="card-body">
         <form class="row g-3 needs-validation was-validated" novalidate="" action="{{ route('newNota') }}" method="POST" enctype="multipart/form-data">
             @csrf
+            @if(isset($nota))  
+            <input type="hidden" name="id" id="id" value="{{$nota->id}}">
+            @endif
             <div class="row mt-2">
                 <div class="col-md-12 col-sm-12">
                     <div class="mb-3">
@@ -78,7 +81,8 @@
                 </div>
                 <div class="col-md-12 mt-3">
                     <div class="d-flex justify-content-end align-items-center h-100">
-                       <button type="submit" class="btn btn-primary">Guardar</button>
+                        <a class="btn btn-danger me-2" href="{{route('notas')}}">Calcelar</a>
+                        <button type="submit" class="btn btn-primary">Guardar</button>
                     </div>
                 </div>
             </div>

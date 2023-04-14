@@ -39,13 +39,24 @@ class NotasController extends Controller
      */
     public function create(Request $request)
     {
-        $path = "public/imagenes/principales";
-        $imagen = $request->file('imagen')->store($path);
-        if ($imagen !== false) {
-            $imagen = substr($imagen, 7, strlen($imagen) - 1);
+        $save = function(Request $request, string $tipo): bool {
+            if ($tipo == 'insert') {
+                $nota = new notas();
+                $nota->visitas = 1;
+            } else if ($tipo == 'update') {
+                $nota = notas::Find($request->id);
+                $nota->visitas = $nota->visitas;
+            }
 
-            $nota = new notas();
-            
+            if (isset($request->imagen)) {
+                $path = "public/imagenes/principales";
+                $imagen = $request->file('imagen')->store($path);
+                $imagen = substr($imagen, 7, strlen($imagen) - 1);
+                if ($imagen !== false) {
+                    $nota->imagen = $imagen;
+                }
+            }
+
             $nota->titulo = $request->titulo;
             $nota->id_autor = $request->id_autor;
             $nota->contenido = $request->contenido;
@@ -53,18 +64,28 @@ class NotasController extends Controller
             $nota->fecha_nota = $request->fecha_nota;
             $nota->fecha_publicacion = $request->fecha_publicacion;
             $nota->imagen = $imagen;
-            $nota->visitas = $request->visitas;
             $nota->status = $request->status;
             $nota->url = $request->url;
-            $nota->visitas = 1;
-    
-            if ($nota->save()) {
-                return redirect(route('notas'));
-            } else {
-                return redirect(route('notas'))->withErrors('No fue posible registrar la nueva nota');
-            }
+
+            return $nota->save();
+        };
+
+        if (isset($request->id)){
+            $resqponse = $save($request, 'update');
         } else {
-            return redirect(route('notas'))->withErrors('No fue posible prosesar la imagen.');
+            $resqponse = $save($request, 'insert');
+        }
+
+        if ($resqponse) {
+            return redirect(route('notas'));
+        } else {
+            if (isset($request->id)) {
+                // return redirect(route('notas.edit', ['id' => $request->id]))->withErrors('No se pudo actualizar el autor.');
+                return redirect(route('notas.edit', ['id' => $request->id]))->back()->onlyInput();
+            } else {
+                // return redirect(route('notas.new'))->withErrors('No se pudo agregar el autor.');
+                return redirect(route('notas.new'))->withErrors('No se pudo agregar.');
+            }
         }
     }
 }

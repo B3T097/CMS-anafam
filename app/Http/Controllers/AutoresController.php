@@ -89,7 +89,6 @@ class AutoresController extends Controller
                 return redirect(route('autores.new'))->back()->onlyInput();
             }
         }
-
     }
 
     /**
