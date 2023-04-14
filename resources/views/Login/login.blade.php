@@ -21,7 +21,6 @@
                             @csrf
                             <input type="email" name="email" id="email" class="input-form" placeholder="Correo">
                             <input type="password" name="password" id="password" class="input-form" placeholder="Contraseña">
-                            <input type="checkbox" name="remember" id="remember">
                             <input type="submit" value="Entrar" class="btn">
                         </form>
                         @error('error')

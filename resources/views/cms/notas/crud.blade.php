@@ -33,7 +33,7 @@
                 <div class="col-md-12 col-sm-12">
                     <div class="mb-3">
                         <label class="form-label" for="contenido">Contenido </label>
-                        <textarea class="form-control" name="contenido" id="contenido" cols="30" rows="10"></textarea>
+                        <textarea class="form-control" name="contenido" id="contenido" cols="30" rows="10">@if(isset($nota)) {{$nota->contenido}} @endif</textarea>
                     </div>
                 </div>
                 <div class="col-md-12 col-sm-12">
@@ -97,5 +97,7 @@
     });
 
     CKFinder.setupCKEditor();
-    CKEDITOR.replace('contenido');
+    CKEDITOR.replace('contenido', {
+        filebrowserUploadUrl: "{{route('ckfinder.save', ['_token' => csrf_token() ])}}"
+    });
 </script>

@@ -30,9 +30,14 @@ class AutoresController extends Controller
     {
         $id = (int)$request->id;
         if ($id !== 0) {
-            return view('components.bodyTemplate', ['viewComponent' => 'cms.autores.crud'])->with('id', $id);
+            $autor = DB::table('autores')->get()->where('id', "=", $id)->first();
+            if ($autor !== null) {
+                return view('components.bodyTemplate', ['viewComponent' => 'cms.autores.crud', 'autor' => $autor])->with('id', $id);
+            } else {
+                return redirect(route('autores'));
+            }
         } else {
-            return $this->index();
+            return redirect(route('autores'));
         }
     }
 
@@ -41,24 +46,50 @@ class AutoresController extends Controller
      */
     public function create(Request $request)
     {
-        $imagen = $request->file('imagen')->store('public/imagenes');
-        if ($imagen !== false) {
-            $imagen = substr($imagen, 7, strlen($imagen) - 1);
-            $autor = new autores();
-    
+        $save = function(Request $request, string $tipo): bool {
+            if ($tipo == 'insert') {
+                $autor = new autores();
+            } else if ($tipo == 'update') {
+                $autor = autores::Find($request->id);
+            }
+
+            if (isset($request->imagen)) {
+                $path = "public/imagenes/autores";
+                $imagen = $request->file('imagen')->store($path);
+                if ($imagen !== false) {
+                    $autor->imagen = $imagen;
+                }
+            }
+
             $autor->nombre = $request->nombre;
             $autor->correo = $request->correo;
-            $autor->imagen = $imagen;
             $autor->grado_academico = $request->grado_academico;
             $autor->nacionalidad = $request->nacionalidad;
             $autor->facebook = $request->facebook;
             $autor->twitter = $request->twitter;
             $autor->linkedin = $request->linkedin;
-    
-            if ($autor->save()) {
-                return redirect(route('autores'));
+
+            return $autor->save();
+        };
+
+        if (isset($request->id)){
+            $resqponse = $save($request, 'update');
+        } else {
+            $resqponse = $save($request, 'insert');
+        }
+
+        if ($resqponse) {
+            return redirect(route('autores'));
+        } else {
+            if (isset($request->id)) {
+                // return redirect(route('autores.edit', ['id' => $request->id]))->withErrors('No se pudo actualizar el autor.');
+                return redirect(route('autores.edit', ['id' => $request->id]))->back()->onlyInput();
+            } else {
+                // return redirect(route('autores.new'))->withErrors('No se pudo agregar el autor.');
+                return redirect(route('autores.new'))->back()->onlyInput();
             }
         }
+
     }
 
     /**

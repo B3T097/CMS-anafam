@@ -39,7 +39,8 @@ class NotasController extends Controller
      */
     public function create(Request $request)
     {
-        $imagen = $request->file('imagen')->store('public/imagenes');
+        $path = "public/imagenes/principales";
+        $imagen = $request->file('imagen')->store($path);
         if ($imagen !== false) {
             $imagen = substr($imagen, 7, strlen($imagen) - 1);
 

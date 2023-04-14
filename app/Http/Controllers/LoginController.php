@@ -30,7 +30,6 @@ class LoginController extends Auth
             'password' => ['required']
         ]);
 
-        $recordar = $request->has('remember');
         if (Auth::attempt($credenciales)) {
             $request->session()->regenerate();
             return redirect()->intended(route('bienvenida'));

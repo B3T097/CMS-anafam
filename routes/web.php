@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AutoresController;
+use App\Http\Controllers\CKFinderController;
 use App\Http\Controllers\cmsController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NotasController;
@@ -17,12 +18,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect('cms/login');
-});
+//VISTAS
+Route::get('/', function () {return redirect('login');});
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
-
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/bienvenida', [cmsController::class, 'bienvenida'])->name('bienvenida');
 
@@ -39,9 +38,15 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 
+// FUNCIONES
 Route::post('/validarLogin', [LoginController::class, 'login'])->name("validarLogin");
-Route::post('/nuevo-nota', [NotasController::class, 'create'])->name("newNota");
-Route::post('/cerrarSesion', [LoginController::class, 'logOut'])->name("salir");
-Route::post('/registro-usuario', [LoginController::class, 'create'])->name("registro-usuario");
+Route::group(['middleware' => 'auth'], function(){
+    Route::post('/nuevo-nota', [NotasController::class, 'create'])->name("newNota");
+    Route::post('/cerrarSesion', [LoginController::class, 'logOut'])->name("salir");
+    Route::post('/registro-usuario', [LoginController::class, 'create'])->name("registro-usuario");
+    
+    Route::post('/nuevo-autor', [AutoresController::class, 'create'])->name("newAutor");
+    
+    Route::post('/save_img', [CKFinderController::class, 'saveImage'])->name("ckfinder.save");
+});
 
-Route::post('/nuevo-autor', [AutoresController::class, 'create'])->name("newAutor");
