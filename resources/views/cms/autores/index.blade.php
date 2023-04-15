@@ -12,7 +12,7 @@
                 <tr>
                     <th class="">Nombre</th>
                     <th>Correo</th>
-                    {{-- <th>imagen</th> --}}
+                    <th>imagen</th>
                     {{-- <th>grado_academico</th> --}}
                     {{-- <th>Nacionalidad</th> --}}
                     <th>Facebook</th>
@@ -26,7 +26,7 @@
                 <tr>
                     <td class="align-middle">{{$autor->nombre}}</td>
                     <td class="align-middle">{{$autor->correo}}</td>
-                    {{-- <td class="align-middle"><img src="{{ $autor->imagen }}" alt="" srcset=""></td> --}}
+                    <td class="align-middle"><img src="{{ $autor->imagen }}" alt="" srcset=""></td>
                     {{-- <td class="align-middle">{{$autor->grado_academico}}</td> --}}
                     {{-- <td class="align-middle">{{$autor->nacionalidad}}</td> --}}
                     <td class="align-middle"><a href="https://www.facebook.com/{{$autor->facebook}}" target="_blank" style="width: max-content;" class="ms-auto me-auto input-group-text"><i class="mdi mdi-facebook"></i></a></td>
