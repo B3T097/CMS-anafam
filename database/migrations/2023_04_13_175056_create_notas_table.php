@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('notas', function (Blueprint $table) {
             $table->id();
             $table->string('titulo');
+            $table->string('subtitulo');
             $table->foreignId('id_autor')->constrained('autores');
             $table->longText('contenido');
             $table->string('descripcion');

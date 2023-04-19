@@ -58,6 +58,7 @@ class NotasController extends Controller
             }
 
             $nota->titulo = $request->titulo;
+            $nota->subtitulo = $request->subtitulo;
             $nota->id_autor = $request->id_autor;
             $nota->contenido = $request->contenido;
             $nota->descripcion = $request->descripcion;
