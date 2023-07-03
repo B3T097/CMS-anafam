@@ -4,9 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <title>CMS | Anafam</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
-    <meta content="Themesdesign" name="author" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
     <!-- App favicon -->
     <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
 
@@ -40,9 +38,7 @@
                     @include($viewComponent)    
                 </div>
             </div>
-            <!-- End Page-content -->
-
-
+            <!-- End Page-content -->  
             @include('components.footer')
         </div>
         <!-- end main content-->

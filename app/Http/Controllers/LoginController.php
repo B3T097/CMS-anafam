@@ -35,7 +35,7 @@ class LoginController extends Auth
             return redirect()->intended(route('bienvenida'));
         } else {
             return back()->withErrors([
-                'error' => 'EL Usuario y/o Contraseña son incorrectos.',
+                'error' => 'Usuario y/o Contraseña incorrectos.',
             ])->onlyInput('correo');
         }
     }

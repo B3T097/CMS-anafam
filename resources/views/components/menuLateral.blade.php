@@ -17,7 +17,7 @@
                 </li>
 
 
-                <li class="nav-item dropdown" style="cursor: pointer">
+                <li class="nav-item dropdown" style="position: relative;">
                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="mdi mdi-account"></i>
                         Usuarios
@@ -38,7 +38,7 @@
                     </ul>
                 </li>
 
-                <li class="nav-item dropdown" style="cursor: pointer">
+                <li class="nav-item dropdown" style="position: relative;">
                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="mdi mdi-book-open-variant"></i>
                         Notas
@@ -59,7 +59,7 @@
                     </ul>
                 </li>
 
-                <li class="nav-item dropdown" style="cursor: pointer">
+                <li class="nav-item dropdown" style="position: relative;">
                     <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="mdi mdi-book-open-variant"></i>
                         Autores
